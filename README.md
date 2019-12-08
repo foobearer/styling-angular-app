@@ -5,14 +5,18 @@ Best practices and things to consider when styling Angular application
 
 #### View Encapsulation
 
-        none    : this will remove custom scope selector to el and css.
-                : to enable none view encapsulation, you have to import "ViewEncapsulation" from @angular/core and set it to 
-                "encapsulation: ViewEncapsulation.None" inside @Component.
-                : it's best to use this when you want to set global styling for your app. It will be called first among all styles
-                and it could be overwritten by the succeeding styles.
+        none    : this will remove custom scope selector to element and css.
+                : to enable none view encapsulation, you have to import "ViewEncapsulation" 
+                    from @angular/core and set it to "encapsulation: ViewEncapsulation.None" 
+                    inside @Component.
+                : it's best to use this when you want to set global styling for your app. 
+                    It will be called first among all styles
+                    and it could be overwritten by the succeeding styles.
         emulated: is the default view encapsulation in ng app.
-                : this adds unique ng host/content (custom scope) selector to each html el. within the encapsulated component.
-        native  : this will not use ng custom scope selector but it will create Shadow root for CSS. Browsers that supports Shadow DOM 
+                : this adds unique ng host/content (custom scope) selector to each html el.
+                    within the encapsulated component.
+        native  : this will not use ng custom scope selector but it will create Shadow root
+                    for CSS. Browsers that supports Shadow DOM 
                 could only display shadow root selector. (e.i. Chrome)
                 : "encapsulation: ViewEncapsulation.Emulated"
 
@@ -22,10 +26,13 @@ CSS Scoping Module: (pseudo classes)
         : :host - : host(.classname)
                   : this will apply to the root element in the component
         : :host-context - "host-context(.classname)
-                  : this will look up the tree node within the component and adds few options to where to apply the styling.
-        : /deep/ | >>> - this will look for the elements that are not implicitly define in the component then apply the styling. 
-                  But it will apply the css globally and would affect other elements, so adding a pseudo class within >>> will 
-                  lessen the probability of overriding styles in other components.
+                  : this will look up the tree node within the component and adds few options 
+                    to where to apply the styling.
+        : /deep/ | >>> - this will look for the elements that are not implicitly define in 
+                    the component then apply the styling. 
+                  : But it will apply the css globally and would affect other elements, 
+                    so adding a pseudo class within >>> will lessen the probability of 
+                    overriding styles in other components.
 
 #### Adding Styles in Component
 
